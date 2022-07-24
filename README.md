@@ -64,3 +64,16 @@ inside the model.
 * It is not necessary that the exercise is completed in full. We are not looking for perfect solution, simply a way to 
 see how you structure your code. Feel free to add notes about how you would have completed, or enhanced the solution if
 you had further time available
+
+## Ben Golding Submission Notes
+I had originally coded my solution with the logic for taxation contained within the Vehicle model, but this seemed to go against the non-functional requirements. To me, it seemed the best solution was to extract the taxation logic into a value object (which I called 'vehicle_tax.rb'). This is pretty new to me, so hopefully it's implemented OK - I suppose an alternative would've been to use concerns, i.e. "class Vehicle include Taxable ..." and "module Taggable extend ActiveSupport::Concern ...", but I thought this was worth giving a shot.
+
+The intention of my approach is that anyone importing vehicle data can do so through ActiveRecord, and so long as they don't deliberately bypass callbacks in doing so, the vehicle_tax value should be populated automatically, given all other fields are provided.
+
+Given more time I'd probably change the way testing is done by adding in the FactoryBot gem, and add more tests generally.
+
+Overall I went over the suggested 2 hours, but that was mainly down to reading about value objects. I didn't time myself but imagine I'd be under without exploring this option.
+
+
+
+
